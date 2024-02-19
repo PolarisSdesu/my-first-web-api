@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web API 示例</title>
+</head>
+
+<body>
+
+    <div id="webapi"></div>
+
+    <script>
+        function getWebApi() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://127.0.0.1:8080', true);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    // 显示 "message" 字段的内容
+                    document.getElementById('webapi').innerHTML = data.message;
+                }
+            }
+        }
+
+        getWebApi();
+    </script>
+</body>
+
+</html>
