@@ -10,7 +10,7 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-// handler 是原始的请求处理函数a
+// handler 是原始的请求处理函数
 func handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json") // Content-Type 头部
 	fmt.Fprintf(w, `{"message": "Hello, World!"}`)
